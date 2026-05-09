@@ -1,0 +1,16 @@
+.partner-card {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background: var(--gray-lighter);
+    border: solid var(--gray-lighter);
+    @include border-r(8px);
+    @include border-w(2px);
+    @include spacing(height, 120px, 120px, 60px, 60px);
+
+    &__image {
+        object-fit: contain;
+        user-select: none;
+    }
+}
+

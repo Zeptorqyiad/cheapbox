@@ -1,0 +1,72 @@
+.service-fs {
+    background: url('/assets/images/background/background-fs.png') center center / cover no-repeat;
+    @include spacing(padding-bottom, 80px, 80px, 40px, 40px);
+
+    &__wrap{
+        display: flex;
+        flex-direction: column;
+        @include spacing(gap, 32px, 32px, 32px, 32px);
+    }
+
+    &__headline{
+        display: grid;
+        grid-template-columns: vw(680px) vw(700px);
+        @include spacing(gap, 40px, 40px, 12px, 12px);
+
+        @include HD {
+            grid-template-columns: vwh(608px) vwh(628px);
+        }
+        @include Tablet {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            width: 100%;
+        }
+
+        &-title {
+            color: var(--gray-darker);
+            @include h2;
+        }
+
+        &-desc {
+            color: var(--gray-dark);
+            @include t2;
+        }
+    }
+
+    &__content{
+        display: grid;
+        grid-template-columns: vw(680px) vw(700px);
+        @include spacing(gap, 40px, 40px, 24px, 24px);
+
+        @include HD {
+            grid-template-columns: vwh(608px) vwh(628px);
+        }
+        @include Tablet{
+            grid-template-columns: 1fr;
+        }
+
+        &-separator{
+            display: none;
+
+            @include Tablet{
+                display: block;
+            }
+        }
+    }
+
+    &__image {
+        @include border-r(12px);
+        width: 100%;
+        @include spacing(height, 400px, 360px, 360px, 167px);
+    }
+
+    .bread-crumbs__container{
+        margin-inline: 0;
+        @include spacing(margin-bottom, 32px, 32px, 20px, 20px);
+    }
+
+    .page-heading__container{
+        margin-inline: 0;
+    }
+}

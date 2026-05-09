@@ -1,0 +1,81 @@
+.benefit-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--gray-lighter);
+    @include border-r(12px);
+    @include spacing(padding, 20px, 20px, 20px, 20px);
+    @include spacing(gap, 20px, 20px, 16px, 16px);
+
+    &__marker {
+        flex-shrink: 0;
+
+        @include Tablet {
+            width: vwt(40px);
+            height: vwt(40px);
+        }
+        @include Mobile {
+            width: vwm(40px);
+            height: vwm(40px);
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        @include spacing(gap, 12px, 12px, 8px, 8px);
+    }
+
+    &__title {
+        @include h5;
+        line-height: 120%;
+
+        @include Tablet {
+            @include h6;
+        }
+    }
+
+    &__desc {
+        @include t2;
+
+        @include Tablet {
+            @include t3;
+        }
+    }
+
+    &__button {
+        width: 100%;
+    }
+
+    /*----------COLOR-----------*/
+    &-color {
+        &_main {
+            border-bottom: solid var(--color1-main);
+            @include border-w(4px);
+            .marker__icon {
+                color: var(--color1-main);
+            }
+        }
+        &_red {
+            border-bottom: solid var(--uniq-red);
+            @include border-w(4px);
+            .marker__icon {
+                color: var(--uniq-red);
+            }
+        }
+        &_blue {
+            border-bottom: solid var(--uniq-blue);
+            @include border-w(4px);
+            .marker__icon {
+                color: var(--uniq-blue);
+            }
+        }
+        &_green {
+            border-bottom: solid var(--uniq-green);
+            @include border-w(4px);
+            .marker__icon {
+                color: var(--uniq-green);
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+.about-naming {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        @include spacing(padding-block, 80px, 80px, 40px, 40px);
+        @include spacing(gap, 40px, 40px, 20px, 20px);
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "image desc"
+            "image cards";
+        @include spacing(column-gap, 140px, 60px, 32px);
+        @include spacing(row-gap, 40px, 40px, 20px, 32px);
+
+        @include Mobile {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-image {
+            @include border-r(12px);
+            @include spacing(height, 380px, 380px, 230px, 230px);
+            width: 100%;
+            grid-area: image;
+        }
+
+        &-desc {
+            @include t2;
+            @include spacing(width, 640px, 580px, 352px);
+            color: var(--gray-dark);
+            grid-area: desc;
+
+            @include Mobile {
+                width: 100%;
+            }
+        }
+
+        &-cards {
+            display: flex;
+            grid-area: cards;
+            @include spacing(gap, 20px, 20px, 20px, 20px);
+
+            @include Mobile {
+                padding-top: vwm(8px);
+            }
+        }
+    }
+}
+

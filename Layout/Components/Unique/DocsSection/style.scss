@@ -1,0 +1,31 @@
+.docs-section {
+    @include spacing(padding-top, 40px, 40px, 20px, 20px);
+    @include spacing(padding-bottom, 80px, 80px, 40px, 40px);
+
+    &__container {
+        display: flex;
+        @include spacing(gap, 40px, 40px);
+    }
+
+    &__body {
+        display: flex;
+        width: 100%;
+        @include spacing(gap, 40px, 40px, 32px, 32px);
+
+        @include Tablet {
+            justify-content: center;
+        }
+    }
+
+    &__wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        height: fit-content;
+        @include spacing(gap, 12px, 12px, 12px, 12px);
+
+        @include Tablet {
+            grid-template-columns: 1fr;
+        }
+    }
+}

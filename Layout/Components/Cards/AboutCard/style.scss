@@ -1,0 +1,39 @@
+.about-card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @include spacing(gap, 12px, 12px, 12px, 12px);
+    @include spacing(padding-right, 20px, 20px, 0, 0);
+
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        border-bottom: solid var(--gray-lighter);
+        @include border-w(2px);
+        @include spacing(gap, 12px, 12px, 0, 0);
+    }
+
+    &__title {
+        color: var(--gray-darker);
+        @include h1;
+
+        @include Tablet {
+            @include h3;
+        }
+    }
+
+    &__subtitle {
+        color: var(--gray-medium);
+        @include t2;
+        @include spacing(padding-bottom, 20px, 20px, 8px, 8px);
+    }
+
+    &__desc {
+        color: var(--gray-dark);
+        @include t2;
+
+        @include Tablet {
+            @include t3;
+        }
+    }
+}

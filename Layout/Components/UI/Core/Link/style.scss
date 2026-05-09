@@ -1,0 +1,222 @@
+.link {
+    /*----------CORE STYLE-----------*/
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    touch-action: manipulation;
+    @include transition((color, opacity));
+
+    &__icon-left, &__icon-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        @include transition((fill, stroke));
+        @include icon(16px);
+    }
+
+    /*----------STYLES-----------*/
+    &-underline {
+        color: var(--color1-dark);
+        border-bottom-color: var(--color1-dark);
+
+        .link__text {
+            border-bottom: dashed;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                color: var(--color1-main);
+                border-bottom-color: var(--color1-main);
+            }
+        }
+
+        &:active {
+            color: var(--color1-darker);
+            border-bottom-color: var(--color1-darker);
+        }
+
+        &.active {
+            cursor: default;
+            color: var(--color1-darker);
+            border-bottom-color: var(--color1-darker);
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            color: var(--gray-medium);
+            border-bottom-color: var(--gray-medium);
+        }
+    }
+
+
+    &-flat {
+        color: var(--color1-dark);
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                color: var(--color1-main);
+            }
+        }
+
+        &:active {
+            color: var(--color1-darker);
+        }
+
+        &.active {
+            cursor: default;
+            color: var(--color1-darker);
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            color: var(--gray-medium);
+        }
+    }
+
+    /*----------SIZES-----------*/
+    &-size_xl {
+        height: vw(30px);
+        gap: vw(4px);
+
+        @include HD {
+            height: vwh(30px);
+            gap: vwh(4px);
+        }
+        @include Tablet {
+            height: vwt(30px);
+            gap: vwt(4px);
+        }
+        @include Mobile {
+            height: vwm(30px);
+            gap: vwm(4px);
+        }
+
+        .link__text {
+            @include t1;
+        }
+    }
+
+    &-size_l {
+        height: vw(24px);
+        gap: vw(4px);
+
+        @include HD {
+            height: vwh(24px);
+            gap: vwh(4px);
+        }
+        @include Tablet {
+            height: vwt(24px);
+            gap: vwt(4px);
+        }
+        @include Mobile {
+            height: vwm(24px);
+            gap: vwm(4px);
+        }
+
+        .link__text {
+            @include t2;
+        }
+    }
+
+    &-size_m {
+        height: vw(20px);
+        gap: vw(4px);
+
+        @include HD {
+            height: vwh(20px);
+            gap: vwh(4px);
+        }
+        @include Tablet {
+            height: vwt(20px);
+            gap: vwt(4px);
+        }
+        @include Mobile {
+            height: vwm(20px);
+            gap: vwm(4px);
+        }
+
+        .link__text {
+            @include t3;
+        }
+    }
+
+    &-size_s {
+        height: vw(16px);
+        gap: vw(4px);
+
+        @include HD {
+            height: vwh(16px);
+            gap: vwh(4px);
+        }
+        @include Tablet {
+            height: vwt(16px);
+            gap: vwt(4px);
+        }
+        @include Mobile {
+            height: vwm(16px);
+            gap: vwm(4px);
+        }
+
+        .link__text {
+            @include t4;
+        }
+    }
+
+    /*----------THEME-----------*/
+    &-theme_dark {
+        &.link-underline {
+            color: var(--color1-light);
+            border-bottom-color: var(--color1-light);
+
+            @media (hover: hover) and (pointer: fine) {
+                &:hover {
+                    color: var(--color1-lighter);
+                    border-bottom-color: var(--color1-lighter);
+                }
+            }
+
+            &:active {
+                color: var(--color1-main);
+                border-bottom-color: var(--color1-main);
+            }
+
+            &.active {
+                cursor: default;
+                border-bottom-color: var(--color1-main);
+                color: var(--color1-main);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                color: var(--gray-medium);
+                border-bottom-color: transparent;
+            }
+        }
+
+        &.link-flat {
+            color: var(--color1-light);
+
+            @media (hover: hover) and (pointer: fine) {
+                &:hover {
+                  color: var(--color1-lighter);
+                }
+            }
+
+            &:active {
+                color: var(--color1-main);
+            }
+
+            &.active {
+              cursor: default;
+              border-bottom-color: var(--color1-main);
+            }
+
+            &:disabled {
+              cursor: not-allowed;
+              color: var(--gray-medium);
+            }
+        }
+    }
+}

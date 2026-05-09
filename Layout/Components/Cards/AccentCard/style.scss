@@ -1,0 +1,40 @@
+.accent-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--gray-lighter);
+    height: fit-content;
+    @include spacing(padding, 20px);
+    @include gap(20px);
+    @include border-r(12px);
+
+    .badge {
+        background: var(--color1-light);
+    }
+
+    &__badge {
+        .badge__text {
+            @include t2-b;
+        }
+    }
+
+    &__desc {
+        color: var(--gray-darker);
+        @include t1;
+
+        @include Tablet {
+            @include t2;
+        }
+
+        ul > li {
+            list-style-type: disc !important;
+            @include t1;
+            color: var(--gray-dark);
+            text-align: left;
+            @include spacing(margin-left, 20px);
+
+            @include Tablet {
+                @include t2;
+            }
+        }
+    }
+}

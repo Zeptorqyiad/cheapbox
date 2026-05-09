@@ -1,0 +1,47 @@
+.about-history {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        @include spacing(padding-block, 80px, 80px, 40px, 40px);
+        @include spacing(gap, 32px, 32px, 16px, 16px);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        @include spacing(gap, 40px, 40px, 20px, 20px);
+
+        &-info{
+            display: flex;
+            @include spacing(gap, 160px, 60px, 32px, 32px);
+
+            @include Mobile{
+                flex-wrap: wrap-reverse;
+            }
+
+            &-desc {
+                @include t2;
+                color: var(--gray-dark);
+                @include spacing(width, 680px, 636px, 352px);
+
+                @include Mobile{
+                    width: 100%;
+                }
+            }
+
+            &-image {
+                @include border-r(12px);
+                @include spacing(flex-basis, 580px, 580px, 352px);
+                @include spacing(height, 380px, 380px, 230px, 230px);
+                width: 100%;
+                object-fit: cover;
+
+                @include Mobile {
+                    flex-basis: unset;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+

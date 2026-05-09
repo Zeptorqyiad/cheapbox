@@ -1,0 +1,98 @@
+<?php
+
+namespace App\Extensions\Form\Component;
+
+use Simflex\Core\ComponentBase;
+use Simflex\Core\Core;
+use Simflex\Core\Time;
+
+class AjaxForm extends ComponentBase
+{
+    protected $errors = [];
+    protected $data = [];
+
+    protected function content()
+    {
+        header('Content-Type: application/json; charset=utf-8');
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            exit(json_encode(['success' => false, 'errors' => ['Invalid request method.']], JSON_THROW_ON_ERROR));
+        }
+
+        $name = $_REQUEST['name'] ?? '';
+        $phone = $_REQUEST['phone'] ?? '';
+        $email = strtolower($_REQUEST['email'] ?? '');
+
+        $this->data = compact('name', 'email', 'phone');
+
+        if (empty($phone)) {
+            $this->errors[] = 'Не заполнены обязательные поля';
+            exit(json_encode(['success' => false, 'errors' => $this->errors, JSON_THROW_ON_ERROR]));
+        }
+
+        $this->data = compact('name', 'phone', 'email');
+
+        exit(json_encode(['success' => $this->sendTelegram() || $this->sendMail(), 'errors' => $this->errors]));
+    }
+
+    protected function sendMail()
+    {
+        try {
+            $m = new MailAssist(Core::siteParam('form_email'), 'Новая заявка с сайта');
+
+            $html = <<<HTML
+<p><b>Имя: </b> {$this->data['name']}</p>
+<p><b>E-mail: </b> {$this->data['email']}</p>
+<p><b>Телефон: </b> {$this->data['phone']}</p>
+HTML;
+
+            $m->content($html);
+
+            if (!$m->send()) {
+                $this->errors[] = 'Почта не отправлена: ' . ($m->ErrorInfo ?: 'Неизвестная ошибка');
+                return false;
+            }
+            return true;
+        } catch (\Exception $e) {
+            $this->errors[] = 'Ошибка почты: ' . $e->getMessage();
+            return false;
+        }
+    }
+
+    protected function sendTelegram()
+    {
+        $text = "<b>НОВАЯ ЗАЯВКА</b>\n\n" .
+            "<b>Имя:</b> " . htmlspecialchars($this->data['name']) . "\n" .
+            "<b>E-mail:</b> " . htmlspecialchars($this->data['email']) . "\n" .
+            "<b>Телефон:</b> " . htmlspecialchars($this->data['phone']);
+
+        $ch = curl_init();
+        curl_setopt_array($ch, [
+            CURLOPT_URL => 'https://api.telegram.org/bot' . Core::siteParam('form_tg_token') . '/sendMessage',
+            CURLOPT_POST => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POSTFIELDS => [
+                'chat_id' => Core::siteParam('form_tg_chat_id'),
+                'text' => $text,
+                'parse_mode' => 'HTML'
+            ]
+        ]);
+
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($httpCode !== 200 || $response === false) {
+            $this->errors[] = 'Telegram sending failed: HTTP ' . $httpCode;
+            return false;
+        }
+
+        $result = json_decode($response, true);
+        if (!$result['ok']) {
+            $this->errors[] = 'Telegram API error: ' . ($result['description'] ?? 'Unknown');
+            return false;
+        }
+
+        return true;
+    }
+}

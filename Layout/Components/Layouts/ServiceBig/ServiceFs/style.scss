@@ -1,0 +1,141 @@
+.service-fs {
+    background: url('/assets/images/background/background-fs.png') center center / cover no-repeat;
+    @include spacing(gap, 32px, 32px, 20px, 20px);
+    @include spacing(padding-bottom, 80px, 80px, 40px, 40px);
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        @include spacing(gap, 60px, 60px, 32px, 32px);
+
+        @include Tablet {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        @include spacing(height, 400px, 360px, 440px, 200px);
+        @include border-r(12px);
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        @include spacing(gap, 32px, 32px, 24px, 24px);
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        @include spacing(gap, 20px, 20px, 12px, 12px);
+
+        &-title {
+            color: var(--gray-darker);
+            @include h1;
+
+            @include HD{
+                hyphens: auto;
+            }
+            @include Tablet{
+                hyphens: none;
+            }
+            @include Mobile{
+                hyphens: auto;
+                padding-right: vwm(30px);
+            }
+        }
+
+        &-desc {
+            color: var(--gray-dark);
+            @include t2;
+        }
+    }
+
+    &__parameters {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: fit-content;
+        background-color: var(--gray-white);
+        border: solid var(--gray-light);
+        @include gap(16px);
+        @include spacing(padding-inline, 20px, 20px, 20px, 20px);
+        @include spacing(padding-block, 12px, 12px, 12px, 12px);
+        @include border-w(2px);
+        @include border-r(12px);
+
+        @include Mobile {
+            width: 100%;
+        }
+    }
+
+    &__parameter {
+        display: flex;
+        align-items: center;
+        @include gap(8px);
+
+        &-icon {
+            flex-shrink: 0;
+            color: var(--color1-main);
+
+            svg {
+                flex-shrink: 0;
+                @include spacing(width, 24px, 24px, 24px, 24px);
+                @include spacing(height, 24px, 24px, 24px, 24px);
+            }
+        }
+
+        &-text {
+            color: var(--color1-main);
+            @include h4;
+
+            @include Mobile {
+                @include h6;
+            }
+        }
+
+        &-separator {
+            color: var(--gray-lighter);
+            @include spacing(height, 24px, 24px, 24px, 24px);
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        @include gap(12px);
+
+        @include Mobile {
+            flex-direction: column;
+        }
+    }
+
+    &__button {
+        @include Mobile {
+            width: 100%;
+        }
+    }
+
+    .bread-crumbs__container{
+        margin-inline: 0;
+        @include spacing(margin-bottom, 32px, 32px, 20px, 20px);
+    }
+
+    .page-heading__container{
+        margin-inline: 0;
+    }
+}

@@ -1,0 +1,69 @@
+:root {
+    /*----------GRAY-----------*/
+    --gray-black: #0D0D0D;
+    --gray-darker: #262626;
+    --gray-dark: #4D4D4D;
+    --gray-medium: #919599;
+    --gray-light: #EAEAEA;
+    --gray-lighter: #F6F6F6;
+    --gray-white: #FFFFFF;
+
+    /*----------COLOR1-----------*/
+    --color1-darker: #914A08;
+    --color1-dark: #C26209;
+    --color1-main: #E87409;
+    --color1-light: #FEB36D;
+    --color1-lighter: #FFEBD9;
+
+    /*----------GRADIENT-----------*/
+    --gradient1-dark: linear-gradient(90deg, #C26209 0%, #914A08 100%);
+    --gradient1-main: linear-gradient(90deg, #FEB36D 0%, #E87409 100%);
+    --gradient1-light: linear-gradient(90deg, #FFEBD9 0%, #FEB36D 100%);
+
+    /*----------BACKGROUND-----------*/
+    --bg-light: #FFFFFF;
+    --bg-dark: #F6F6F6;
+    --bg-gradient: linear-gradient(90deg, #D9F2FF 0%, #B6D4F2 100%);
+
+    /*----------ERROR-----------*/
+    --error-dark: #CC2929;
+    --error-medium: #FFA6A6;
+    --error-light: #FFCCCC;
+
+    /*----------ALERT-----------*/
+    --alert-dark: #737300;
+    --alert-medium: #D9D998;
+    --alert-light: #F2F2AA;
+
+    /*----------SUCCESS-----------*/
+    --success-dark: #0E8C0E;
+    --success-medium: #98D998;
+    --success-light: #C3E5C3;
+
+    /*----------DISABLE-----------*/
+    --disable-dark: #343434;
+    --disable-medium: #919599;
+    --disable-light: #DFE4EB;
+
+    /*----------TRANSPARENT-----------*/
+    --transparent: transparent;
+
+    /*----------SOCIALS-----------*/
+    --socials-in: radial-gradient(230.93% 230.93% at 102.01% 2.03%, #F9ED32 0%, #EE2A7B 36%, #D22A8A 44%, #8B2AB2 60%, #1B2AF0 83%, #002AFF 88%);
+    --socials-wt: #48C95F;
+    --socials-tg: #27A6E5;
+    --socials-vk: #0077FF;
+    --socials-ya: #FC3F1D;
+
+    /*----------UNIQUE-----------*/
+    --uniq-dark: #332E31;
+    --uniq-green: #72AF69;
+    --uniq-blue: #54B4BA;
+    --uniq-violet: #7D31DE;
+    --uniq-purple: #C279A3;
+    --uniq-pink: #F9AFCA;
+    --uniq-red: #E35130;
+    --uniq-orange: #E57A45;
+    --uniq-gold: #D9BA21;
+    --uniq-light: #D9D9D7;
+}

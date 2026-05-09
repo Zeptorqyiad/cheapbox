@@ -1,0 +1,177 @@
+.tables-block {
+    @include spacing(padding-block, 80px, 80px, 40px, 40px);
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        @include spacing(gap, 32px, 32px, 24px, 24px);
+    }
+
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        @include spacing(gap, 40px, 40px, 32px, 32px);
+
+        &-container {
+
+            @include Tablet {
+                padding-bottom: vwt(8px);
+                overflow-x: scroll;
+            }
+            @include Mobile {
+                padding-bottom: vwm(8px);
+            }
+
+            &::-webkit-scrollbar {
+                background-color: var(--gray-lighter);
+                @include spacing(height, 8px, 8px, 8px, 8px);
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: var(--color1-light);
+                @include border-r(8px);
+            }
+
+            &--wrap {
+                border: solid var(--color1-light);
+                @include border-r(20px);
+                @include border-w(2px);
+                overflow: hidden;
+
+                @include Tablet {
+                    width: max-content;
+                }
+            }
+        }
+    }
+
+    &__title {
+        color: var(--gray-darker);
+        @include h5;
+    }
+
+    &__table {
+        width: fit-content;
+
+        @include Tablet {
+            width: max-content;
+        }
+
+        &-header {
+            width: 100%;
+            background-color: var(--color1-lighter);
+
+            &--th {
+                border-bottom: solid var(--color1-light);
+                border-left: solid var(--color1-light);
+                @include border-w(2px);
+                @include spacing(padding, 20px, 20px, 20px, 20px);
+
+                &-btlr {
+                    border-bottom: solid var(--color1-light);
+                    @include spacing(border-top-left-radius, 20px, 20px, 20px, 20px);
+                    @include border-w(2px);
+                }
+
+                &-btrr {
+                    border-bottom: solid var(--color1-light);
+                    border-left: solid var(--color1-light);
+                    @include spacing(border-top-right-radius, 20px, 20px, 20px, 20px);
+                    @include border-w(2px);
+                }
+            }
+        }
+
+        &-body {
+            background-color: var(--gray-lighter);
+
+            &--td {
+                border-left: solid var(--gray-light);
+                border-top: solid var(--gray-light);
+                @include border-w(2px);
+                @include spacing(padding-inline, 20px, 20px, 20px, 20px);
+                @include spacing(padding-block, 16px, 16px, 16px, 16px);
+
+                &-bblr {
+                    @include spacing(border-bottom-left-radius, 20px, 20px, 20px, 20px);
+                }
+                &-bbrr {
+                    border-top: solid var(--gray-light);
+                    border-left: solid var(--gray-light);
+                    @include spacing(border-bottom-right-radius, 20px, 20px, 20px, 20px);
+                    @include border-w(2px);
+                }
+            }
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: vw(680px) vw(700px);
+        @include spacing(gap, 40px, 60px, 32px, 32px);
+
+        @include HD {
+            grid-template-columns: vw(588px) vw(628px);
+        }
+        @include Tablet {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-text {
+            display: flex;
+            flex-direction: column;
+            @include spacing(gap, 20px, 20px, 16px, 16px);
+        }
+
+        &-title {
+            color: var(--gray-darker);
+            @include h5;
+        }
+
+        &-desc {
+            color: var(--gray-dark);
+            @include t2;
+        }
+    }
+}
+
+.col {
+    &-1 {
+        @include spacing(width, 260px, 260px);
+
+        @include Tablet {
+            width: 260px;
+        }
+        @include Mobile {
+            width: 260px;
+        }
+    }
+    &-2 {
+        @include spacing(width, 460px, 316px);
+
+        @include Tablet {
+            width: 316px;
+        }
+        @include Mobile {
+            width: 316px;
+        }
+    }
+    &-3 {
+        @include spacing(width, 220px, 220px);
+
+        @include Tablet {
+            width: 220px;
+        }
+        @include Mobile {
+            width: 220px;
+        }
+    }
+}
+
+.first-child {
+    .tables-block__table-body--td {
+        &:first-child {
+            border-left: 0;
+        }
+    }
+}

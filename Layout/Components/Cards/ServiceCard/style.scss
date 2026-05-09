@@ -1,0 +1,92 @@
+.service-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--gray-lighter);
+    @include spacing(padding, 20px, 20px, 20px, 20px);
+    @include spacing(gap, 20px, 20px, 8px, 8px);
+    @include border-r(12px);
+    border-bottom: 4px solid transparent;
+    @include transition((border-color, background));
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            border-bottom-color: var(--color1-main);
+            @include transition((border-color));
+
+            .service-card__arrow,
+            .service-card__title {
+                @include transition((color));
+                color: var(--color1-main);
+            }
+            .service-card__arrow{
+                transform: rotate(45deg);
+                @include transition((transform));
+            }
+        }
+    }
+
+    &:active {
+        background: var(--color1-lighter);
+        border-bottom-color: var(--color1-main);
+        @include transition((background));
+
+        .service-card__arrow,
+        .service-card__title,
+        .service-card__desc {
+            @include transition((color));
+            color: var(--color1-darker);
+        }
+    }
+
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        @include spacing(gap, 30px, 30px, 30px, 20px);
+    }
+
+    &__title {
+        color: var(--gray-darker);
+        line-height: 120%;
+        @include h5;
+        @include transition((color));
+
+        @include Tablet {
+            @include h6;
+        }
+    }
+
+    &__arrow {
+        flex-shrink: 0;
+        @include transition((transform));
+    }
+
+    &__desc {
+        color: var(--gray-dark);
+        @include t2;
+
+        @include Tablet {
+            @include t3;
+        }
+    }
+
+    /*----------BORDER-----------*/
+    &-border {
+        &_main {
+            border-bottom: solid var(--color1-main);
+            @include border-w(4px);
+        }
+        &_red {
+            border-bottom: solid var(--uniq-red);
+            @include border-w(4px);
+        }
+        &_blue {
+            border-bottom: solid var(--uniq-blue);
+            @include border-w(4px);
+        }
+        &_green {
+            border-bottom: solid var(--uniq-green);
+            @include border-w(4px);
+        }
+    }
+}

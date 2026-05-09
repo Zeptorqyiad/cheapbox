@@ -1,0 +1,60 @@
+.callback-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--color1-lighter);
+    @include border-r(12px);
+    @include spacing(gap, 48px, 48px, 12px, 12px);
+    @include spacing(padding-block, 24px, 24px, 20px, 20px);
+    @include spacing(padding-left, 44px, 44px, 20px, 20px);
+    @include spacing(padding-right, 24px, 24px, 20px, 20px);
+
+    @include Tablet {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    &__title {
+        @include h4;
+        line-height: 120%;
+        color: var(--gray-darker);
+        @include spacing(max-width, 300px, 300px);
+
+        @include Tablet{
+            max-width: 100%;
+        }
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background-color: var(--gray-white);
+        @include border-r(12px);
+        @include spacing(gap, 40px, 40px, 40px, 20px);
+        @include spacing(padding-block, 24px, 24px, 20px, 20px);
+        @include spacing(padding-left, 40px, 40px, 20px, 20px);
+        @include spacing(padding-right, 24px, 24px, 20px, 20px);
+
+        @include Mobile {
+            flex-direction: column;
+        }
+
+        &-desc {
+            @include t2;
+            color: var(--gray-dark);
+        }
+
+        &-button-callback {
+            width: fit-content;
+
+            @include Mobile {
+                width: 100%;
+            }
+
+            .btn__text {
+                width: max-content;
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.error-section {
+    @include spacing(padding-top, 80px, 80px, 40px, 40px);
+    @include spacing(padding-bottom, 120px, 120px, 60px, 60px);
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__image{
+        @include spacing(width, 480px, 480px, 240px, 240px);
+    }
+
+    &__title {
+        text-align: center;
+        color: var(--gray-darker);
+        @include spacing(margin-top, 40px, 40px, 28px, 28px);
+        @include h3;
+    }
+
+    &__desc {
+        text-align: center;
+        color: var(--gray-dark);
+        max-width: 67ch;
+        @include spacing(margin-top, 12px, 12px, 12px, 12px);
+        @include t2;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        @include spacing(margin-top, 20px, 20px, 20px, 20px);
+        @include gap(12px);
+    }
+}

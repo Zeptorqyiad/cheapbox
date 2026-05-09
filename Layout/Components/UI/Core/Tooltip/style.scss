@@ -1,0 +1,113 @@
+.tooltip {
+    /*----------CORE STYLE-----------*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: vw(12px) vw(16px);
+    gap: vw(4px);
+    background: var(--gray-lighter);
+    color: var(--gray-darker);
+
+    @include transition((border, background, color, opacity));
+    @include border-r(12px);
+
+    @include HD {
+        padding: vwh(12px) vwh(16px);
+        gap: vwh(4px);
+    }
+    @include Tablet {
+        padding: vwt(12px) vwt(16px);
+        gap: vwt(4px);
+    }
+    @include Mobile {
+        padding: vwm(12px) vwm(16px);
+        gap: vwm(4px);
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        flex-shrink: 0;
+    }
+
+    &__title {
+        @include t3-b;
+    }
+
+    &__subtitle {
+        @include t4;
+    }
+
+    /* Forgiveness zone */
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: vw(-8px);
+        left: 0;
+        width: 100%;
+        height: vw(18px);
+
+        @include HD {
+            bottom: vwh(-8px);
+            height: vwh(18px);
+        }
+        @include Tablet {
+            bottom: vwt(-18px);
+            height: vwt(18px);
+        }
+        @include Mobile {
+            bottom: vwm(-18px);
+            height: vwm(18px);
+        }
+    }
+
+    /* Top pointer */
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: vw(-5px);
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        background: var(--gray-lighter);
+        border-radius: 0 0 vw(5px) 0;
+        z-index: 1;
+        @include icon(10px);
+
+        @include HD {
+            border-radius: 0 0 vw(5px) 0;
+            bottom: vwh(-5px);
+        }
+        @include Tablet {
+            border-radius: 0 0 vw(5px) 0;
+            bottom: vwt(-5px);
+        }
+        @include Mobile {
+            border-radius: 0 0 vw(5px) 0;
+            bottom: vwm(-5px);
+        }
+    }
+
+    /* Top pointer position */
+    &-position_left{
+        &::after {
+            left: 25%;
+        }
+    }
+
+    &-position_right{
+        &::after {
+            left: 75%;
+        }
+    }
+
+
+    /*----------THEME-----------*/
+
+    &-theme_dark {
+        background: var(--gray-darker);
+        color: var(--gray-white);
+    }
+}

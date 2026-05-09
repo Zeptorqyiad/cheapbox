@@ -1,0 +1,67 @@
+.about-fs {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        @include spacing(padding-block, 20px, 20px, 12px, 12px);
+        @include spacing(gap, 20px, 20px, 16px, 20px);
+    }
+
+    &__headline {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        @include spacing(padding-block, 20px, 20px);
+        @include spacing(gap, 20px, 40px, 32px, 12px);
+
+        &-titles {
+            @include spacing(padding-right, 20px, 20px, 20px, 20px);
+
+            &-title {
+                @include h1;
+            }
+
+            &-subtitle {
+                @include h3;
+                line-height: 120%;
+            }
+        }
+
+        @include Mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__desc {
+        display: flex;
+        flex-direction: column;
+        @include spacing(gap, 20px, 20px, 26px, 20px);
+
+        &-text {
+            @include t2;
+            color: var(--gray-dark);
+        }
+
+        &-buttons {
+            display: flex;
+            @include spacing(gap, 8px, 8px, 8px, 8px);
+
+            @include Tablet {
+                flex-wrap: wrap;
+            }
+        }
+    }
+
+    &__button {
+        @include Mobile {
+            width: 100%;
+        }
+    }
+
+    &__image {
+        @include spacing(height, 480px, 428px, 248px, 200px);
+        @include border-r(12px);
+
+        @include Tablet {
+            object-fit: cover;
+        }
+    }
+}

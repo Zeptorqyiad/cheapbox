@@ -1,0 +1,56 @@
+.legal-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: fit-content;
+    background-color: var(--gray-lighter);
+    border: solid var(--gray-lighter);
+    @include spacing(padding, 20px, 20px, 12px, 12px);
+    @include spacing(gap, 12px, 12px, 12px, 12px);
+    @include border-r(12px);
+    @include border-w(1px);
+
+    &:active {
+        background-color: var(--color1-lighter);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            border: solid var(--gray-white);
+            @include border-w(1px);
+
+            .legal-card__marker {
+                color: var(--color1-light);
+            }
+            .legal-card__title {
+                color: var(--color1-darker);
+            }
+            .legal-card__icon {
+                color: var(--color1-darker);
+                transform: rotate(45deg);
+                @include transition((transform));
+            }
+        }
+    }
+
+    &__marker {
+        color: var(--color1-light);
+    }
+
+    &__title {
+        color: var(--gray-darker);
+        @include t2;
+        @include spacing(width, 378px, 324px, 360px, 222px);
+    }
+
+    &__icon {
+        transform: rotate(0deg);
+        @include transition((transform));
+
+    }
+
+    svg {
+        flex-shrink: 0;
+        @include icon(24px);
+    }
+}
